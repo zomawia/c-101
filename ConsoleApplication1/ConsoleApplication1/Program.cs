@@ -10,8 +10,6 @@ namespace ConsoleApplication1
     {
         static void Square(string number)
         {
-
-
             ulong sq = ulong.Parse(number);
             sq = sq * sq;
             Console.WriteLine(number + " it is " + sq);
@@ -53,9 +51,14 @@ namespace ConsoleApplication1
                     Console.ReadLine();
                     break;
                 }
-                catch (System.Exception ex)
+                catch (FormatException)
                 {
                     Console.WriteLine("Sorry, that doesn't seem to be a number.");
+                }
+
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Sorry, that number is too big.");
                 }
             }
 
